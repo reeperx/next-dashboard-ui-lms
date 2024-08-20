@@ -1,6 +1,6 @@
 "use client";
 
-import { CircleX, Pencil, Trash2 } from "lucide-react";
+import { CircleX, Pencil, Trash2, Plus } from "lucide-react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -50,7 +50,7 @@ const FormModal = ({
   const size = type === "create" ? "w-8 h-8" : "w-7 h-7";
   const bgColor =
     type === "create"
-      ? "bg-red-600"
+      ? "bg-sky-600"
       : type === "update"
       ? "bg-sky-300"
       : "bg-red-600";
@@ -80,7 +80,9 @@ const FormModal = ({
         className={`${size} flex items-center justify-center rounded-full ${bgColor}`}
         onClick={() => setOpen(true)}
       >
-        {type === "update" ? (
+        {type === "create" ? (
+          <Plus className="w-4 h-4 text-white" />
+        ) : type === "update" ? (
           <Pencil className="w-4 h-4" />
         ) : (
           <Trash2 className="w-4 h-4 text-white" />
@@ -94,7 +96,7 @@ const FormModal = ({
               className="absolute top-4 right-4 cursor-pointer"
               onClick={() => setOpen(false)}
             >
-              <CircleX className="w-4 h-4" />
+              <CircleX className="w-6 h-6" />
             </div>
           </div>
         </div>
